@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:matchingsport/features/authentication/screens/introduction_screen.dart';
 import 'package:matchingsport/utils/routes/routes_names.dart';
-import 'package:matchingsport/view/home_screen.dart';
+import 'package:matchingsport/features/home_screen.dart';
 
 class Routes {
   static Route<dynamic> generateRoutes(RouteSettings settings) {
@@ -8,6 +9,9 @@ class Routes {
       case (RouteNames.home):
         return MaterialPageRoute(
             builder: (BuildContext context) => const HomeScreen());
+      case (RouteNames.introductionScreen):
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const IntroductionScreen());
 
       default:
         return MaterialPageRoute(
