@@ -108,7 +108,6 @@ class _LoginFormState extends State<LoginForm> {
             text: "Remember information",
             onChanged: (bool? value) {
               // Handle checkbox change
-              Provider.of<ThemeProvider>(context, listen: false).toggleMode();
             }),
         BaseButton(
           onPressed: () {},
