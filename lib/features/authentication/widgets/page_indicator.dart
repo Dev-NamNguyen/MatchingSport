@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:matchingsport/res/app.context.extension.dart';
+import 'package:matchingsport/res/resources.dart';
 
 class PageIndicator extends StatelessWidget {
   const PageIndicator({
@@ -7,19 +9,24 @@ class PageIndicator extends StatelessWidget {
     required this.currentPageIndex,
     required this.onUpdateCurrentPageIndex,
     required this.isOnDesktopAndWeb,
-    this.tabColor = Colors.white,
-    this.selectedTabColor = Colors.white,
+    this.tabColor,
+    this.selectedTabColor,
   });
 
   final int currentPageIndex;
   final TabController tabController;
   final void Function(int) onUpdateCurrentPageIndex;
   final bool isOnDesktopAndWeb;
-  final Color tabColor;
-  final Color selectedTabColor;
+  final Color? tabColor;
+  final Color? selectedTabColor;
 
   @override
   Widget build(BuildContext context) {
+    final Resources resources = context.resources;
+    final Color tabColor = this.tabColor ?? resources.colors.whiteColor;
+    final Color selectedTabColor =
+        this.selectedTabColor ?? resources.colors.whiteColor;
+
     if (!isOnDesktopAndWeb) {
       return const SizedBox.shrink();
     }

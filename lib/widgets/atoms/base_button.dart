@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:matchingsport/res/app.context.extension.dart';
 import 'package:matchingsport/res/enums/button_type.dart';
+import 'package:matchingsport/res/resources.dart';
 
 class BaseButton extends StatelessWidget {
   final bool isLoading;
   final bool isDisabled;
   final String content;
-  final Color backgroundColor;
-  final Color tintColor;
+  final Color? backgroundColor;
+  final Color? tintColor;
   final Function onPressed;
   final ButtonType buttonType;
 
@@ -14,14 +16,15 @@ class BaseButton extends StatelessWidget {
       {super.key,
       this.isLoading = false,
       this.isDisabled = false,
-      this.backgroundColor = Colors.blue,
-      this.tintColor = Colors.white,
+      this.backgroundColor,
+      this.tintColor,
       this.buttonType = ButtonType.large,
       required this.onPressed,
       required this.content});
 
   @override
   Widget build(BuildContext context) {
+    final Resources resources = context.resources;
     double buttonHeight() {
       switch (buttonType) {
         case ButtonType.large:
@@ -48,6 +51,9 @@ class BaseButton extends StatelessWidget {
       }
     }
 
+    Color backgroundColor = this.backgroundColor ?? resources.colors.primary;
+    Color tintColor = this.tintColor ?? resources.colors.whiteColor;
+
     return GestureDetector(
       onTap: !isDisabled ? onPressed() : null,
       child: Opacity(
@@ -55,7 +61,6 @@ class BaseButton extends StatelessWidget {
         child: Container(
           height: buttonHeight(),
           width: double.infinity,
-          margin: const EdgeInsets.symmetric(horizontal: 16),
           decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: const BorderRadius.all(

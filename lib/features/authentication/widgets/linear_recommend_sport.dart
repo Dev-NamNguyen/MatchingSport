@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:matchingsport/features/authentication/widgets/page_indicator.dart';
 import 'package:matchingsport/models/content_introduction_model.dart';
+import 'package:matchingsport/res/app.context.extension.dart';
+import 'package:matchingsport/res/resources.dart';
 
 class LinearRecommendSport extends StatefulWidget {
   final List<ContentIntroductionModel> newsItems;
@@ -38,6 +40,7 @@ class _LinearRecommendSportState extends State<LinearRecommendSport>
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
+    final Resources resources = context.resources;
 
     return Column(
       children: [
@@ -62,10 +65,10 @@ class _LinearRecommendSportState extends State<LinearRecommendSport>
                       //title
                       Text(
                         newsItem.title,
-                        style: const TextStyle(
-                          fontSize: 34,
+                        style: TextStyle(
+                          fontSize: resources.sizes.textLarge,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: resources.colors.whiteColor,
                         ),
                       ),
 
@@ -75,9 +78,9 @@ class _LinearRecommendSportState extends State<LinearRecommendSport>
                       Text(
                         newsItem.content,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.white,
+                        style: TextStyle(
+                          fontSize: resources.sizes.textSmall,
+                          color: resources.colors.whiteColor,
                         ),
                       ),
                     ],
