@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:matchingsport/features/authentication/widgets/linear_recommend_sport.dart';
 import 'package:matchingsport/features/authentication/widgets/main_background.dart';
 import 'package:matchingsport/models/content_introduction_model.dart';
-import 'package:matchingsport/res/widgets/atoms/base_button.dart';
+import 'package:matchingsport/res/app.context.extension.dart';
+import 'package:matchingsport/res/resources.dart';
+import 'package:matchingsport/widgets/atoms/base_button.dart';
 
 class IntroductionScreen extends StatelessWidget {
   const IntroductionScreen({super.key});
@@ -10,6 +12,7 @@ class IntroductionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
+    final Resources resources = context.resources;
 
     //mock data
     final List<ContentIntroductionModel> newsItems = [
@@ -36,42 +39,44 @@ class IntroductionScreen extends StatelessWidget {
         child: Column(
           children: [
             Image(
-              image: const AssetImage("assets/pngs/intro_background.png"),
+              image: AssetImage(resources.images.bgIntroduction),
               height: screenSize.height * 0.5,
               width: screenSize.width,
               fit: BoxFit.fill,
             ),
             Expanded(
                 child: SafeArea(
+                    top: false,
                     child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  LinearRecommendSport(newsItems: newsItems),
-                  SizedBox(height: screenSize.height * 0.07),
-                  Column(
-                    children: [
-                      BaseButton(
-                        onPressed: () {},
-                        content: "Join now",
-                        backgroundColor: Colors.white,
-                        tintColor: Colors.blue.shade700,
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(height: screenSize.height * 0.03),
+                          LinearRecommendSport(newsItems: newsItems),
+                          SizedBox(height: screenSize.height * 0.07),
+                          Column(
+                            children: [
+                              BaseButton(
+                                onPressed: () {},
+                                content: "Join now",
+                                backgroundColor: resources.colors.whiteColor,
+                                tintColor: resources.colors.primary,
+                              ),
+                              const SizedBox(height: 24),
+                              Text(
+                                "Already a member? Log in",
+                                style: TextStyle(
+                                    color: resources.colors.whiteColor,
+                                    fontSize: resources.sizes.textNormal,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              const SizedBox(height: 15),
+                            ],
+                          )
+                        ],
                       ),
-                      const SizedBox(height: 24),
-                      const Text(
-                        "Already a member? Log in",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      const SizedBox(height: 15),
-                    ],
-                  )
-                ],
-              ),
-            )))
+                    )))
           ],
         ),
       ),

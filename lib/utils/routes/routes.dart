@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:matchingsport/features/authentication/screens/introduction_screen.dart';
+import 'package:matchingsport/features/authentication/screens/login_screen.dart';
 import 'package:matchingsport/utils/routes/routes_names.dart';
 import 'package:matchingsport/features/home_screen.dart';
 
@@ -12,6 +13,10 @@ class Routes {
       case (RouteNames.introductionScreen):
         return MaterialPageRoute(
             builder: (BuildContext context) => const IntroductionScreen());
+
+      case (RouteNames.loginScreen):
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const LoginScreen());
 
       default:
         return MaterialPageRoute(

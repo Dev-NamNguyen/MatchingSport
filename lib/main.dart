@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matchingsport/providers/theme.provider.dart';
 import 'package:matchingsport/utils/routes/routes.dart';
 import 'package:matchingsport/utils/routes/routes_names.dart';
 import 'package:matchingsport/viewModel/home_view_model.dart';
@@ -15,21 +16,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => HomeViewModel())],
-      child: WillPopScope(
-        onWillPop: () async {
-          Navigator.pop(context);
-          return true;
-        },
-        child: MaterialApp(
+      providers: [
+        ChangeNotifierProvider(create: (_) => HomeViewModel()),
+        ChangeNotifierProvider(
+          create: (_) => ThemeProvider(),
+        )
+      ],
+      child: WillPopScope(onWillPop: () async {
+        Navigator.pop(context);
+        return true;
+      }, child: Consumer<ThemeProvider>(builder: (context, theme, child) {
+        return MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          initialRoute: RouteNames.introductionScreen,
+          initialRoute: RouteNames.loginScreen,
           onGenerateRoute: Routes.generateRoutes,
-        ),
-      ),
+        );
+      })),
     );
   }
 }
