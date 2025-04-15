@@ -8,7 +8,7 @@ import 'package:matchingsport/res/enums/button_type.dart';
 import 'package:matchingsport/res/resources.dart';
 import 'package:matchingsport/widgets/atoms/base_button.dart';
 import 'package:matchingsport/widgets/atoms/base_input.dart';
-import 'package:matchingsport/widgets/molecules/social_login_button.dart';
+import 'package:matchingsport/features/authentication/widgets/social_login_button.dart';
 import 'package:matchingsport/widgets/molecules/text_checkbox.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -109,7 +109,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 // Google
                                 SocialLoginButton(
                                   text: 'Login with Google',
-                                  iconAsset: 'assets/pngs/google.svg',
+                                  iconAsset: 'assets/svgs/google.svg',
                                   onPressed: () {
                                     print("Google login");
                                   },
@@ -119,7 +119,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 // Facebook
                                 SocialLoginButton(
                                   text: 'Login with Facebook',
-                                  iconAsset: 'assets/pngs/face.svg',
+                                  iconAsset: 'assets/svgs/face.svg',
                                   onPressed: () {
                                     print("Facebook login");
                                   },
@@ -129,7 +129,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 // Apple
                                 // SocialLoginButton(
                                 //   text: 'Login with Apple',
-                                //   iconAsset: 'assets/icons/apple.svg',
+                                //   iconAsset: 'assets/svgs/apple.svg',
                                 //   onPressed: () {
                                 //     print("Apple login");
                                 //   },

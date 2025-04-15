@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../atoms/social_icon.dart';
+import '../../../widgets/atoms/social_icon.dart';
 
 class SocialLoginButton extends StatelessWidget {
   final String text;

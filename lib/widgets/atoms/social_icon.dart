@@ -8,10 +8,13 @@ class SocialIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final iconWidth = screenWidth * 0.06;
+    final iconHeight = screenWidth * 0.06;
     return SvgPicture.asset(
       imageAssetPath,
-      width: 24,
-      height: 24,
+      width: iconWidth,
+      height: iconHeight,
     );
   }
 }
