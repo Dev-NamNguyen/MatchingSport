@@ -8,14 +8,14 @@ import 'package:matchingsport/res/app.context.extension.dart';
 import 'package:matchingsport/res/resources.dart';
 import 'package:matchingsport/features/authentication/widgets/social_login_button.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     final Resources resources = context.resources;
@@ -147,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     text: TextSpan(
                                       children: [
                                         TextSpan(
-                                          text: "First time here? ",
+                                          text: "Joined us before? ",
                                           style: TextStyle(
                                             color: resources.colors.primaryText,
                                             fontSize:
@@ -156,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: "Sign up for free",
+                                          text: "Login",
                                           style: TextStyle(
                                             color: resources.colors.primary,
                                             fontSize:
