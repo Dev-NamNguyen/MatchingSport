@@ -16,13 +16,11 @@ class BaseCheckBox extends StatefulWidget {
 
 class _BaseCheckBoxState extends State<BaseCheckBox> {
   late bool isActive;
-  late bool value;
 
   @override
   void initState() {
     super.initState();
     isActive = widget.isActive;
-    value = widget.value;
   }
 
   @override
