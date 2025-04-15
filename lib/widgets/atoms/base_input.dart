@@ -3,12 +3,14 @@ import 'package:matchingsport/res/app.context.extension.dart';
 import 'package:matchingsport/res/resources.dart';
 
 class BaseInput extends StatefulWidget {
+  final TextEditingController? controller;
   final bool isObscureText;
   final Widget? suffixIcon;
   final String? hiddenText;
 
   const BaseInput(
       {super.key,
+      this.controller,
       this.isObscureText = false,
       this.suffixIcon,
       this.hiddenText});
@@ -57,6 +59,7 @@ class _BaseInputState extends State<BaseInput> {
     }
 
     return TextField(
+      controller: widget.controller,
       cursorColor: resources.colors.cursorColor,
       obscureText: isHidden,
       decoration: InputDecoration(

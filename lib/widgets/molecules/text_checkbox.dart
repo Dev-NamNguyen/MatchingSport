@@ -4,10 +4,15 @@ import 'package:matchingsport/res/resources.dart';
 import 'package:matchingsport/widgets/atoms/base_checkbox.dart';
 
 class TextCheckBox extends StatelessWidget {
+  final bool value;
   final String text;
   final Function(bool?)? onChanged;
 
-  const TextCheckBox({super.key, required this.text, this.onChanged});
+  const TextCheckBox(
+      {super.key,
+      required this.text,
+      required this.onChanged,
+      required this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +22,7 @@ class TextCheckBox extends StatelessWidget {
       children: [
         BaseCheckBox(
           isActive: false,
+          value: value,
           onChanged: onChanged,
         ),
         Text(

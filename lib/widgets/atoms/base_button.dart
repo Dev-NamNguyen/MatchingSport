@@ -55,7 +55,7 @@ class BaseButton extends StatelessWidget {
     Color tintColor = this.tintColor ?? resources.colors.whiteColor;
 
     return GestureDetector(
-      onTap: !isDisabled ? onPressed() : null,
+      onTap: !isDisabled ? () => onPressed() : null,
       child: Opacity(
         opacity: isLoading || isDisabled ? 0.5 : 1,
         child: Container(

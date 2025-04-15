@@ -3,10 +3,12 @@ import 'package:matchingsport/res/app.context.extension.dart';
 import 'package:matchingsport/res/resources.dart';
 
 class BaseCheckBox extends StatefulWidget {
+  final bool value;
   final bool isActive;
   final Function(bool?)? onChanged;
 
-  const BaseCheckBox({super.key, this.isActive = false, this.onChanged});
+  const BaseCheckBox(
+      {super.key, this.isActive = false, this.onChanged, this.value = false});
 
   @override
   State<BaseCheckBox> createState() => _BaseCheckBoxState();
@@ -14,11 +16,13 @@ class BaseCheckBox extends StatefulWidget {
 
 class _BaseCheckBoxState extends State<BaseCheckBox> {
   late bool isActive;
+  late bool value;
 
   @override
   void initState() {
     super.initState();
     isActive = widget.isActive;
+    value = widget.value;
   }
 
   @override
